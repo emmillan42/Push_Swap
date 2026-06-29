@@ -1,0 +1,459 @@
+# Operations
+sa
+sb
+ss
+
+pa
+pb
+
+ra
+rb
+rr
+
+rra
+rrb
+rrr
+
+
+#Estructura de Datos
+
+##Stack
+typedef struct s_stack
+{
+	t_node	*top;
+	t_node	*bottom;
+	int		size;
+	char	name;
+}	t_stack;
+
+##Node
+typedef struct s_node
+{
+	int				value;
+	int				index;
+	struct s_node	*next;
+	struct s_node	*prev;
+}	t_node;
+
+##Data Structure Complexity Analysis
+| Operation | Array | Simple List | Double List + tail |
+| --------- | ----: | ----------: | -----------------: |
+| sa        |  O(1) |        O(1) |               O(1) |
+| pa        |  O(n) |        O(1) |               O(1) |
+| pb        |  O(n) |        O(1) |               O(1) |
+| ra        |  O(n) |        O(n) |               O(1) |
+| rb        |  O(n) |        O(n) |               O(1) |
+| rra       |  O(n) |        O(n) |               O(1) |
+| rrb       |  O(n) |        O(n) |               O(1) |
+
+
+#Algorithms
+
+##Small Stack Algorithms
+2 numbers
+3 numbers
+4 numbers
+5 numbers
+
+##Large Stack Algorithms
+Radix Sort
+Turk Algorithm
+K Sort
+LIS + Greedy
+Chunk Sort
+
+********************************************************************************
+Analizar
+dificultad
+número medio de operaciones
+facilidad de implementación
+facilidad para defenderlo en la evaluación
+
+Optimización
+Una vez todo funcione:
+eliminar operaciones inútiles
+fusionar movimientos (rr, rrr, ss)
+reducir rotaciones
+mejorar coste
+********************************************************************************
+
+#Estructura del Proyecto
+
+push_swap/
+│
+├── Makefile
+├── includes/
+│   └── push_swap.h
+│
+├── src/
+│   ├── main.c
+│   │
+│   ├── parser/
+│   │   ├── parser.c
+│   │   ├── parser_utils.c
+│   │   ├── split_args.c
+│   │   └── validation.c
+│   │
+│   ├── stack/
+│   │   ├── stack_init.c
+│   │   ├── stack_node.c
+│   │   ├── stack_utils.c
+│   │   └── stack_clear.c
+│   │
+│   ├── operations/
+│   │   ├── swap.c
+│   │   ├── push.c
+│   │   ├── rotate.c
+│   │   ├── reverse_rotate.c
+│   │   └── operation_utils.c
+│   │
+│   ├── metadata/
+│   │   ├── metadata1.c
+│   │   ├── metadata2.c
+│   │   ├── metadata3.c
+│   │   ├── metadata4.c
+│   │   ├── metadata5.c
+│   │   └── metadata6.c
+│   │
+│   ├── sort/
+│   │   ├── sort.c
+│   │   ├── sort_small.c
+│   │   ├── sort_large.c
+│   │   ├── cost.c
+│   │   ├── target.c
+│   │   └── optimizer.c
+│   │
+│   ├── utils/
+│   │   ├── error.c
+│   │   ├── memory.c
+│   │   └── math_utils.c
+│   │
+│   └── debug/
+│       └── print_stack.c
+│
+└── libft/
+
+parser/
+##Sólo transforma argumentos en una pila válida.
+Nunca ordena.
+Nunca hace operaciones.
+###Funciones Públicas
+bool	parse_args(t_stack *a, int argc, char **argv);
+
+##stack/
+Sólo sabe construir pilas.
+No sabe nada del algoritmo.
+###Funciones Públicas
+t_stack	*stack_init(char name);
+void	stack_clear(t_stack *stack);
+t_node	*node_new(int value);
+void	stack_add_bottom(t_stack *, t_node *);
+void	stack_add_top(t_stack *, t_node *);
+t_node	*stack_pop_top(t_stack *);
+
+##operations/
+Sólo ejecuta:
+sa
+sb
+ss
+pa
+pb
+ra
+rb
+rr
+rra
+rrb
+rrr
+###Funciones Públicas (Estas llaman a las internas y luego hacen
+write(1, "sa\n", 3);)
+El algoritmo nunca toca directamente las internas.
+Siempre utiliza operaciones oficiales.
+Esto hace que todo quede perfectamente encapsulado.
+void	sa(t_stack *a);
+void	sb(t_stack *b);
+void	ss(t_stack *a, t_stack *b);
+void	pa(t_stack *a, t_stack *b);
+void	pb(t_stack *a, t_stack *a);
+void	ra(t_stack *a);
+void	rb(t_stack *b);
+void	rr(t_stack *a, t_stack *b);
+void	rra(t_stack *a);
+void	rrb(t_stack *b);
+void	rrr(t_stack *a, t_stack *b);
+###Funciones Internas (Estas nunca imprimen.)
+void	swap(t_stack *stack, bool print, const char *op);
+void	push(t_stack *src, t_stack *dst, bool print, const char *op);
+void	rotate(t_stack *stack, bool print, const char *op);
+void	reverse_rotate(t_stack *stack, bool print, const char *op);
+
+##sort/
+Este módulo decide:
+¿Hago pb?
+¿Hago ra?
+¿Qué nodo es el mejor?
+¿Cuánto cuesta moverlo?
+Pero nunca modifica punteros directamente.
+Siempre llama a:
+pb(stack_a, stack_b);
+ra(stack_a);
+sort()
+↓
+if size == 2
+↓
+sort_two()
+↓
+if size == 3
+↓
+sort_three()
+↓
+if size == 5
+↓
+sort_five()
+↓
+else
+↓
+sort_large()
+
+##debug/
+Este módulo no formará parte de la entrega final, pero sí del desarrollo.
+void	print_stack(t_stack *stack);
+void	print_both(t_stack *a, t_stack *b);
+
+
+#Flujo del Programa
+main()
+↓
+parse()
+↓
+stack creada
+↓
+assign_index()
+↓
+sort()
+↓
+free()
+
+##Stack
+typedef struct s_stack
+{
+	t_node	*top;
+	t_node	*bottom;
+	int		size;
+	char	name;
+}	t_stack;
+
+##Node
+typedef struct s_node
+{
+	int				value;
+	int				index;
+	struct s_node	*next;
+	struct s_node	*prev;
+}	t_node;
+
+###value: Es el número original.Nunca cambia.
+
+###index:
+| Value | Index |
+| ----- | ----: |
+| -15   |     0 |
+| 0     |     1 |
+| 42    |     2 |
+| 98    |     3 |
+El algoritmo puede trabajar sobre:
+2
+0
+3
+1
+en lugar de:
+42
+-15
+98
+0
+Mucho más sencillo.
+
+###position: campo "dinámico"
+| Value | Position |
+| ----- | -------: |
+| 18    |        0 |
+| 90    |        1 |
+| 2     |        2 |
+| 7     |        3 |
+¿Por qué es útil?
+Porque el algoritmo constantemente necesita responder:
+"¿Dónde está este nodo?"
+Sin recorrer otra vez la lista.
+
+###above_median:
+size = 10
+0
+1
+2
+3
+4
+----------- Median
+5
+6
+7
+8
+9
+¿Para qué sirve?
+Si un nodo está arriba:
+ra
+Si está abajo:
+rra
+
+###target:
+Este será probablemente el más importante del algoritmo.
+
+struct s_node *target;
+
+A
+3
+9
+15
+20
+
+B
+12
+
+¿Dónde debe insertarse el 12?
+Entre:
+9
+15
+Por tanto:
+target = nodo(15)
+
+Muchísimos algoritmos funcionan así.
+Cada nodo de B conoce el nodo de A donde debe insertarse.
+
+###cost:
+Aquí almacenaremos ¿Cuántos movimientos cuesta llevar este nodo a su sitio?
+
+int	cost;
+
+El algoritmo escogerá el de menor coste.
+
+###cheapest:
+Solo un nodo será true, el de menos coste y el algoritmo moverá ese
+
+bool	cheapest;
+
+typedef struct s_node
+{
+	int				value;
+	int				index;
+
+	int				position;
+
+	int				cost;
+
+	bool			above_median;
+
+	bool			cheapest;
+
+	struct s_node	*target;
+
+	struct s_node	*next;
+	struct s_node	*prev;
+
+}	t_node;
+
+update_metadata(stack_a, stack_b);
+update_positions();
+update_targets();
+update_costs();
+update_cheapest();
+
+                Parser
+                   │
+                   ▼
+             Construir Stack
+                   │
+                   ▼
+            assign_index()
+                   │
+                   ▼
+         update_metadata()
+                   │
+                   ▼
+           Elegir mejor nodo
+                   │
+                   ▼
+      Ejecutar operaciones (sa, pb, ra…)
+                   │
+                   ▼
+         update_metadata()
+                   │
+                   ▼
+              Repetir
+
+			  typedef struct s_node
+{
+	int				value;
+	int				index;
+
+	int				position;
+	int				cost;
+
+	bool			above_median;
+	bool			cheapest;
+
+	struct s_node	*target;
+
+	struct s_node	*next;
+	struct s_node	*prev;
+}	t_node;
+
+typedef struct s_stack
+{
+	t_node	*top;
+	t_node	*bottom;
+	int		size;
+	char	name;
+}	t_stack;
+
+                 main()
+                    │
+                    ▼
+              parser/
+                    │
+                    ▼
+          stack_init()
+                    │
+                    ▼
+         assign_index()
+                    │
+                    ▼
+      update_metadata()
+                    │
+                    ▼
+               sort()
+                    │
+         ┌──────────┴──────────┐
+         │                     │
+   operations/          metadata/
+         │                     │
+         └──────────┬──────────┘
+                    ▼
+              stack state
+                    │
+                    ▼
+              stack_clear()
+
+
+
+               +----------------+
+               |   push_swap    |
+               +----------------+
+                       │
+          ┌────────────┴─────────────┐
+          │                          │
+      Algoritmo                   Parser
+          │                          │
+          └────────────┬─────────────┘
+                       │
+                Operaciones
+                       │
+                       ▼
+                Stack Library
