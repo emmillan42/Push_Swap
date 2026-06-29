@@ -1,0 +1,137 @@
+push_swap/
+│
+├── Makefile
+├── includes/
+│   └── push_swap.h
+│
+├── src/
+│   ├── main.c
+│   │
+│   ├── parser/
+│   │   ├── parser.c
+│   │   ├── parser_utils.c
+│   │   ├── split_args.c
+│   │   └── validation.c
+│   │
+│   ├── stack/
+│   │   ├── stack_init.c
+│   │   ├── stack_node.c
+│   │   ├── stack_utils.c
+│   │   └── stack_clear.c
+│   │
+│   ├── operations/
+│   │   ├── swap.c
+│   │   ├── push.c
+│   │   ├── rotate.c
+│   │   ├── reverse_rotate.c
+│   │   └── operation_utils.c
+│   │
+│   ├── metadata/
+│   │   ├── metadata1.c
+│   │   ├── metadata2.c
+│   │   ├── metadata3.c
+│   │   ├── metadata4.c
+│   │   ├── metadata5.c
+│   │   └── metadata6.c
+│   │
+│   ├── sort/
+│   │   ├── sort.c
+│   │   ├── sort_small.c
+│   │   ├── sort_large.c
+│   │   ├── cost.c
+│   │   ├── target.c
+│   │   └── optimizer.c
+│   │
+│   ├── utils/
+│   │   ├── error.c
+│   │   ├── memory.c
+│   │   └── math_utils.c
+│   │
+│   └── debug/
+│       └── print_stack.c
+│
+├── libft/
+│
+└── tests/
+    ├── stack/
+    ├── operations/
+    ├── parser/
+    ├── metadata/
+    ├── sort/
+    └── utils/
+
+push_swap/
+│
+├── Makefile
+├── includes/
+├── libft/
+├── src/
+│   ├── parser/
+│   ├── stack/
+│   ├── operations/
+│   ├── metadata/
+│   ├── sort/
+│   ├── utils/
+│   └── debug/
+│
+└── tests/
+    ├── stack/
+    ├── operations/
+    ├── parser/
+    ├── metadata/
+    ├── sort/
+    └── utils/
+
+               +----------------+
+               |   push_swap    |
+               +----------------+
+                       │
+          ┌────────────┴─────────────┐
+          │                          │
+      Algoritmo                   Parser
+          │                          │
+          └────────────┬─────────────┘
+                       │
+                Operaciones
+                       │
+                       ▼
+                Stack Library
+
+#Stack Library
+
+##stack_init.c
+###stack_init()
+Responsabilidad: Crear una pila vacía.
+Prototipo:
+t_stack	*stack_init(char name);
+Entrada:
+'A'
+o
+'B'
+Salida:
+Devuelve una pila correctamente inicializada
+Error: Si falla malloc():
+return (NULL);
+Complejidad: O(1)
+
+##stack_node.c
+###node_new()
+Responsabilidad: Crear un nodo completamente inicializado.
+Prototipo:
+t_node	*node_new(int value);
+Entrada
+int value;
+Salida
+Un nodo correctamente inicializado.
+Error: Si malloc() falla:
+return (NULL);
+Complejidad: O(1)
+
+##node_new()
+Responsabilidad: Liberar un nodo.
+Prototipo:
+void	node_free(t_node *node);
+Entrada:
+Un nodo válido o NULL
+Salida: Ninguna.
+Complejidad: O(1)
