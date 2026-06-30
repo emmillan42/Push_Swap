@@ -197,11 +197,13 @@ Node será el nuevo bottom. Size aumentará en uno.
 ### stack_pop_top
 Responsabilidad:
 Extraer el primer nodo de la pila y devolverlo.
+```
 ✅ devuelve el nodo.
 ✅ lo desenlaza completamente.
 ✅ actualiza la pila.
 ❌ no libera memoria.
 ❌ no modifica el contenido del nodo.
+```
 No libera memoria. No modifica el contenido del nodo. Simplemente lo desenlaza.
 Prototipo:
 ```c
@@ -219,11 +221,13 @@ Complejidad: O(1)
 ### stack_pop_bottom
 Responsabilidad:
 Extraer el último nodo de la pila y devolverlo.
+```
 ✅ devuelve el nodo.
 ✅ lo desenlaza completamente.
 ✅ actualiza la pila.
 ❌ no libera memoria.
 ❌ no modifica el contenido del nodo.
+```
 No libera memoria. No modifica el contenido del nodo. Simplemente lo desenlaza.
 Prototipo:
 ```c
@@ -235,5 +239,16 @@ t_stack *stack
 Salida:
 Devuelve t_node *
 Si la pila está vacía return (NULL);
+Complejidad: O(1)
+```
+## stack_clear.c
+### stack_clear
+Responsabilidad:
+Liberar completamente una pila.
+```c
+void	stack_clear(t_stack *stack)
+```
+La función debe liberar todos los nodos, liberar la estructura t_stack y liquidar la pila.
+```
 Complejidad: O(1)
 ```
