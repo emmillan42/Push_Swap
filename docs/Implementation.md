@@ -357,3 +357,38 @@ O(1)
 | 11 | `swap.c`        | `sa()`                |    ✅   |
 | 12 | `swap.c`        | `sb()`                |   🚧   |
 | 13 | `swap.c`        | `ss()`                |   🚧   |
+
+
+## push.c
+### push_stack()
+Responsabilidad:
+Mover el nodo situado en el top de la pila origen al top de la pila destino.
+No imprime. No crea nodos. No destruye nodos. Simplemente mueve un nodo entre dos pilas.
+Prototipo:
+```c
+static void	push_stack(t_stack *src, t_stack *dst);
+```
+Complejidad
+O(1)
+
+### pa()
+Responsabilidad:
+Mover el primer nodo de B hacia A. Imprime pa solo si realmente se ha movido un nodo.
+No crea nodos. No destruye nodos. Simplemente mueve un nodo entre dos pilas.
+Prototipo:
+```c
+void	pa(t_stack *a, t_stack *b);
+```
+Complejidad
+O(1)
+
+### pb()
+Responsabilidad:
+Mover el primer nodo de A hacia B. Imprime pb solo si realmente se ha movido un nodo.
+No crea nodos. No destruye nodos. Simplemente mueve un nodo entre dos pilas.
+Prototipo:
+```c
+void	pb(t_stack *b, t_stack *a);
+```
+Complejidad
+O(1)
