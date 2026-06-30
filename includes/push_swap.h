@@ -6,7 +6,7 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 17:33:22 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/06/29 19:41:39 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/06/30 09:59:34 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,9 @@ t_stack				*stack_init(char name);
 /* stack_node.c */
 t_node				*node_new(int value);
 void				node_free(t_node *node);
+
+/* stack_push.c */
+void				stack_push_top(t_stack *stack, t_node *node);
+void				stack_push_bottom(t_stack *stack, t_node *node);
 
 #endif
