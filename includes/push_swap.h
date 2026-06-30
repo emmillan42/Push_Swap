@@ -6,7 +6,7 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 17:33:22 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/06/30 11:00:24 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/06/30 13:07:32 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,9 @@ void				node_free(t_node *node);
 /* stack_push.c */
 void				stack_push_top(t_stack *stack, t_node *node);
 void				stack_push_bottom(t_stack *stack, t_node *node);
+
+/* stack_pop.c */
+t_node				*stack_pop_top(t_stack *stack);
+t_node				*stack_pop_bottom(t_stack *stack);
 
 #endif

@@ -171,7 +171,7 @@ void	stack_push_top(t_stack *stack, t_node *node);
 ```
 ```
 Precondiciones:
-stack != NULL```
+stack != NULL
 node != NULL
 Postcondiciones:
 Después de ejecutarse node será el nuevo top y size aumentará en uno.
