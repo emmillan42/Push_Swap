@@ -6,7 +6,7 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 17:33:22 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/06/30 16:18:25 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/06/30 16:55:25 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,9 @@ t_node				*stack_pop_bottom(t_stack *stack);
 
 /* stack_clear.c */
 void				stack_clear(t_stack *stack);
+
+/* stack_utils.c */
+bool				stack_is_sorted(t_stack *stack);
+
 
 #endif

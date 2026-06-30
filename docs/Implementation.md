@@ -252,3 +252,21 @@ La función debe liberar todos los nodos, liberar la estructura t_stack y liquid
 ```
 Complejidad: O(1)
 ```
+
+## stack_utils.c
+### stack_is_sorted
+Responsabilidad:
+Comprobar si una pila está ordenada de menor a mayor.
+```
+✅ Recorre la pila.
+✅ No modifica ningún nodo.
+✅ No reserva memoria.
+✅ No libera memoria.
+```
+Prototipo
+```c
+bool	stack_is_sorted(t_stack *stack);
+```
+```
+Complejidad: O(1)
+```
