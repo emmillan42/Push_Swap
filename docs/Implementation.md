@@ -270,3 +270,38 @@ bool	stack_is_sorted(t_stack *stack);
 ```
 Complejidad: O(1)
 ```
+```
+|     Nº | Archivo         | Función               |  Estado  |
+| -----: | --------------- | --------------------- |  :----:  |
+|     01 | `stack_init.c`  | `stack_init()`        |    ✅   |
+|     02 | `stack_node.c`  | `node_new()`          |    ✅   |
+|     03 | `stack_node.c`  | `node_free()`         |    ✅   |
+|     04 | `stack_push.c`  | `stack_push_top()`    |    ✅   |
+|     05 | `stack_push.c`  | `stack_push_bottom()` |    ✅   |
+|     06 | `stack_pop.c`   | `stack_pop_top()`     |    ✅   |
+|     07 | `stack_pop.c`   | `stack_pop_bottom()`  |    ✅   |
+|     08 | `stack_clear.c` | `stack_clear()`       |    ✅   |
+|     09 | `stack_utils.c` | `stack_is_sorted()`   |    🚧   |
+
+```
+
+# Operations Library
+
+## src/operations/
+
+## swap.c
+### swap_stack()
+Responsabilidad:
+Intercambiar los dos primeros nodos de una pila.
+No imprime.
+No reserva memoria.
+No libera memoria.
+No conoce las operaciones sa, sb o ss.
+Prototipo:
+```c
+static void	swap_stack(t_stack *stack);
+```
+```
+Complejidad
+O(1)
+```

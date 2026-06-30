@@ -272,3 +272,24 @@ bool	stack_is_sorted(t_stack *stack);
 ```
 Complejidad: O(1)
 ```
+
+# Operations Library
+
+## src/operations/
+
+## swap.c
+### swap_stack()
+Responsabilidad:
+Intercambiar los dos primeros nodos de una pila.
+No imprime.
+No reserva memoria.
+No libera memoria.
+No conoce las operaciones sa, sb o ss.
+Prototipo:
+```c
+static void	swap_stack(t_stack *stack);
+```
+```
+Complejidad
+O(1)
+```
