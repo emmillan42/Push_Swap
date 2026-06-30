@@ -6,7 +6,7 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 17:33:22 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/06/30 16:55:25 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/01 00:24:48 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdbool.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_node
 {
@@ -66,5 +67,13 @@ void				stack_clear(t_stack *stack);
 /* stack_utils.c */
 bool				stack_is_sorted(t_stack *stack);
 
+/* ************************************************************************** */
+/* OPERATIONS                                                                 */
+/* ************************************************************************** */
+
+/* swap.c */
+void				sa(t_stack *a);
+void				sb(t_stack *b);
+void				ss(t_stack *a, t_stack *b);
 
 #endif

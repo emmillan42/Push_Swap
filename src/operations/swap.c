@@ -6,7 +6,7 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 20:12:00 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/06/30 20:40:01 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/01 00:24:42 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,30 @@ static void	swap_stack(t_stack *stack)
 	second->prev = NULL;
 	first->prev = second;
 	stack->top = second;
+}
+
+void	sa(t_stack *a)
+{
+	if (a->size < 2)
+		return ;
+	swap_stack(a);
+	write(1, "sa\n", 3);
+}
+
+void	sb(t_stack *b)
+{
+	if (b->size < 2)
+		return ;
+	swap_stack(b);
+	write(1, "sb\n", 3);
+}
+
+void	ss(t_stack *a, t_stack *b)
+{
+	if (a->size > 1)
+		swap_stack(a);
+	if (b->size > 1)
+		swap_stack(b);
+	if (a->size > 1 || b->size > 1)
+		write(1, "ss\n", 3);
 }

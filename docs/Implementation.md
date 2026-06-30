@@ -281,7 +281,7 @@ Complejidad: O(1)
 |     06 | `stack_pop.c`   | `stack_pop_top()`     |    ✅   |
 |     07 | `stack_pop.c`   | `stack_pop_bottom()`  |    ✅   |
 |     08 | `stack_clear.c` | `stack_clear()`       |    ✅   |
-|     09 | `stack_utils.c` | `stack_is_sorted()`   |    🚧   |
+|     09 | `stack_utils.c` | `stack_is_sorted()`   |    ✅   |
 
 ```
 
@@ -305,3 +305,55 @@ static void	swap_stack(t_stack *stack);
 Complejidad
 O(1)
 ```
+
+### sa()
+Responsabilidad:
+Intercambiar los dos primeros nodos de la pila A.
+Comprueba si puede actuar, llama a la primitiva, imprime.
+Reutiliza swap_stack(). Imprime "sb\n". No contiene lógica de intercambio.
+Prototipo:
+```c
+void	sa(t_stack *a)
+```
+Complejidad
+O(1)
+
+### sb()
+Responsabilidad:
+Intercambiar los dos primeros nodos de la pila B.
+Comprueba si puede actuar, llama a la primitiva, imprime.
+Reutiliza swap_stack(). Imprime "sb\n". No contiene lógica de intercambio.
+Prototipo:
+```c
+void	sa(t_stack *b)
+```
+Complejidad
+O(1)
+
+### ss()
+Responsabilidad:
+Intercambiar simultáneamente los dos primeros elementos de ambas pilas.
+Comprueba si puede actuar, llama a la primitiva, imprime.
+Reutiliza swap_stack(). Imprime "ss\n". No contiene lógica de intercambio.
+Prototipo:
+```c
+void	ss(t_stack *a, t_stack *b);
+```
+Complejidad
+O(1)
+
+| Nº | Archivo         | Función               | Estado |
+| -: | --------------- | --------------------- | :----: |
+| 01 | `stack_init.c`  | `stack_init()`        |    ✅   |
+| 02 | `stack_node.c`  | `node_new()`          |    ✅   |
+| 03 | `stack_node.c`  | `node_free()`         |    ✅   |
+| 04 | `stack_push.c`  | `stack_push_top()`    |    ✅   |
+| 05 | `stack_push.c`  | `stack_push_bottom()` |    ✅   |
+| 06 | `stack_pop.c`   | `stack_pop_top()`     |    ✅   |
+| 07 | `stack_pop.c`   | `stack_pop_bottom()`  |    ✅   |
+| 08 | `stack_clear.c` | `stack_clear()`       |    ✅   |
+| 09 | `stack_utils.c` | `stack_is_sorted()`   |    ✅   |
+| 10 | `swap.c`        | `swap_stack()`        |    ✅   |
+| 11 | `swap.c`        | `sa()`                |    ✅   |
+| 12 | `swap.c`        | `sb()`                |   🚧   |
+| 13 | `swap.c`        | `ss()`                |   🚧   |

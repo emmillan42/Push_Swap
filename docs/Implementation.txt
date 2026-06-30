@@ -293,3 +293,39 @@ static void	swap_stack(t_stack *stack);
 Complejidad
 O(1)
 ```
+
+### sa()
+Responsabilidad:
+Intercambiar los dos primeros nodos de la pila A.
+Comprueba si puede actuar, llama a la primitiva, imprime.
+Reutiliza swap_stack(). Imprime "sb\n". No contiene lógica de intercambio.
+Prototipo:
+```c
+void	sa(t_stack *a)
+```
+Complejidad
+O(1)
+
+### sb()
+Responsabilidad:
+Intercambiar los dos primeros nodos de la pila B.
+Comprueba si puede actuar, llama a la primitiva, imprime.
+Reutiliza swap_stack(). Imprime "sb\n". No contiene lógica de intercambio.
+Prototipo:
+```c
+void	sa(t_stack *b)
+```
+Complejidad
+O(1)
+
+### ss()
+Responsabilidad:
+Intercambiar simultáneamente los dos primeros elementos de ambas pilas.
+Comprueba si puede actuar, llama a la primitiva, imprime.
+Reutiliza swap_stack(). Imprime "ss\n". No contiene lógica de intercambio.
+Prototipo:
+```c
+void	ss(t_stack *a, t_stack *b);
+```
+Complejidad
+O(1)
