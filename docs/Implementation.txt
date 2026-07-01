@@ -410,3 +410,49 @@ void	rr(t_stack *a, t_stack *b);
 ```
 Complejidad
 O(1)
+
+
+## reverse_rotate.c
+### reverse_rotate_stack()
+Responsabilidad:
+Mover el último nodo de la pila al principio.
+No imprime. No reserva memoria. No libera memoria.
+Prototipo:
+```c
+static void	reverse_rotate_stack(t_stack *stack);
+```
+Complejidad
+O(1)
+
+### rra()
+Responsabilidad:
+Rotar en sentido inverso la pila A. Reutiliza reverse_rotate_stack().
+Imprime "rra\n" únicamente si se realiza la operación.
+Prototipo:
+```c
+void	ra(t_stack *a)
+```
+Complejidad
+O(1)
+
+### rrb()
+Responsabilidad:
+Rotar en sentido inverso la pila B. Reutiliza reverse_rotate_stack().
+Imprime "rrb\n" únicamente si se realiza la operación.
+Prototipo:
+```c
+void	rb(t_stack *b)
+```
+Complejidad
+O(1)
+
+### rr()
+Responsabilidad:
+Ejecutar simultáneamente un reverse rotate sobre ambas pilas.
+Debe imprimir únicamente: rrr y solo si al menos una de las dos pilas ha rotado.
+Prototipo:
+```c
+void	rrr(t_stack *a, t_stack *b);
+```
+Complejidad
+O(1)
