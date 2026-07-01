@@ -6,13 +6,15 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 17:33:22 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/01 09:42:00 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/01 17:41:11 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "../../../0/Libft/libft.h"
+# include <limits.h>
 # include <stdbool.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -89,5 +91,12 @@ void				rr(t_stack *a, t_stack *b);
 void				rra(t_stack *a);
 void				rrb(t_stack *b);
 void				rrr(t_stack *a, t_stack *b);
+
+/* ************************************************************************** */
+/* PARSER                                                                     */
+/* ************************************************************************** */
+
+/* parser_atoi.c */
+bool				parse_int(const char *str, int *value);
 
 #endif

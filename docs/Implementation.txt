@@ -456,3 +456,64 @@ void	rrr(t_stack *a, t_stack *b);
 ```
 Complejidad
 O(1)
+
+
+# Parser Library
+
+## src/parser/
+
+## parser_atoi.c
+### parse_int()
+Responsabilidad:
+Convertir una cadena en un entero.
+Si la conversión es válida:
+devuelve true, almacena el resultado en *value.
+Si hay cualquier error:
+devuelve false, no importa el contenido de *value.
+Debe:
+aceptar un signo opcional (+ o -);
+comprobar que existe al menos un dígito;
+detectar overflow;
+rechazar cualquier carácter sobrante;
+devolver el resultado mediante value.
+No imprime. No reserva memoria. No finaliza el programa.
+Prototipo:
+```c
+bool	parse_int(const char *str, int *value);
+```
+Complejidad
+O(n)
+
+### parse_sign()
+Responsabilidad:
+La función debe:
+detectar + o detectar -. avanzar el puntero si existe un signo. devolver 1 o -1
+No comprueba dígitos.
+No convierte números.
+No detecta overflow.
+Prototipo:
+```c
+static int	parse_sign(const char **str)
+```
+Complejidad
+O(1)
+
+### parse_digits()
+Responsabilidad:
+Leer únicamente la parte numérica.
+Debe:
+comprobar que existe al menos un dígito;
+convertir todos los dígitos;
+detectar overflow;
+dejar el puntero situado en el primer carácter no numérico.
+No comprueba:
+espacios;
+signos;
+caracteres finales.
+Eso será responsabilidad de parse_int().
+Prototipo:
+```c
+static bool	parse_digits(const char **str, int sign, long *number);
+```
+Complejidad
+O(n)
