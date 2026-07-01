@@ -392,3 +392,49 @@ void	pb(t_stack *b, t_stack *a);
 ```
 Complejidad
 O(1)
+
+
+## rotate.c
+### rotate_stack()
+Responsabilidad:
+Mover el primer nodo de la pila al final.
+No imprime. No reserva memoria. No libera memoria.
+Prototipo:
+```c
+static void	rotate_stack(t_stack *stack);
+```
+Complejidad
+O(1)
+
+### ra()
+Responsabilidad:
+Mover el primer nodo de la pila A al final. Imprime "ra\n" únicamente si la operación se realiza.
+No crea nodos. No destruye nodos.
+Prototipo:
+```c
+void	ra(t_stack *a)
+```
+Complejidad
+O(1)
+
+### rb()
+Responsabilidad:
+Mover el primer nodo de la pila B al final. Imprime "rb\n" únicamente si la operación se realiza.
+No crea nodos. No destruye nodos.
+Prototipo:
+```c
+void	rb(t_stack *b)
+```
+Complejidad
+O(1)
+
+### rr()
+Responsabilidad:
+Rotar simultáneamente las pilas A y B.
+Debe imprimir únicamente: rr y solo si al menos una de las dos pilas ha rotado.
+Prototipo:
+```c
+void	rr(t_stack *a, t_stack *b);
+```
+Complejidad
+O(1)

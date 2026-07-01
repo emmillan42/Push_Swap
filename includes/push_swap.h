@@ -6,7 +6,7 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 17:33:22 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/01 01:03:54 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/01 08:25:25 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,10 @@ void				ss(t_stack *a, t_stack *b);
 /* push.c */
 void				pa(t_stack *a, t_stack *b);
 void				pb(t_stack *a, t_stack *b);
+
+/* rotate.c */
+void				ra(t_stack *a);
+void				rb(t_stack *b);
+void				rr(t_stack *a, t_stack *b);
 
 #endif
