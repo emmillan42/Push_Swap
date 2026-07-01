@@ -62,6 +62,16 @@ K Sort
 LIS + Greedy
 Chunk Sort
 
+Simple:
+	Selection Sort
+	 LIS-Keeper (Desorden Bajo)
+Medium:
+	Chunk-Sort con Heurística de Ventana
+Complex:
+	LSD Radix Sort sobre Bits
+	Bitwise Radix Sort
+	Turk
+
 ********************************************************************************
 Analizar
 dificultad
