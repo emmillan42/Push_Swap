@@ -6,7 +6,7 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:40:58 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/01 17:41:25 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/01 18:00:36 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ bool	parse_int(const char *str, int *value)
 	sign = parse_sign(&str);
 	limit = INT_MAX;
 	if (sign < 0)
-		limit = -(long)INT_MIN;
+		limit++;
 	if (!parse_digits(&str, limit, &number))
 		return (false);
 	if (*str != '\0')

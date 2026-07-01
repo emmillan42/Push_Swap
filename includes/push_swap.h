@@ -6,7 +6,7 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 17:33:22 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/01 17:41:11 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/02 00:12:32 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,9 @@ void				stack_push_bottom(t_stack *stack, t_node *node);
 t_node				*stack_pop_top(t_stack *stack);
 t_node				*stack_pop_bottom(t_stack *stack);
 
+/* stack_insert.c */
+bool				stack_append(t_stack *stack, int value);
+
 /* stack_clear.c */
 void				stack_clear(t_stack *stack);
 
@@ -98,5 +101,8 @@ void				rrr(t_stack *a, t_stack *b);
 
 /* parser_atoi.c */
 bool				parse_int(const char *str, int *value);
+
+/* parser.c */
+bool				stack_from_argv(t_stack *stack, int argc, char **argv);
 
 #endif

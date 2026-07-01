@@ -241,6 +241,25 @@ Devuelve t_node *
 Si la pila está vacía return (NULL);
 Complejidad: O(1)
 ```
+## stack_insert.c
+### stack_append
+Responsabilidad:
+Añadir un nuevo valor al final de la pila.
+La función será responsable de:
+reservar memoria para el nodo;
+inicializarlo;
+insertarlo al final de la pila.
+No imprime.
+No libera memoria.
+Devuelve:
+true si todo ha ido bien.
+false si falla la reserva de memoria.
+```c
+bool	stack_append(t_stack *stack, int value)
+```
+```
+Complejidad: O(1)
+```
 ## stack_clear.c
 ### stack_clear
 Responsabilidad:
