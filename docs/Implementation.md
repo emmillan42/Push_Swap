@@ -564,3 +564,59 @@ static bool	parse_digits(const char **str, int sign, long *number);
 ```
 Complejidad
 O(n)
+
+
+## parser.c
+### is_duplicate()
+Responsabilidad:
+Buscar si un valor ya existe a partir de un nodo dado.
+Devuelve true si encuentra el valor.
+Devuelve false si no lo encuentra.
+No modifica la lista.
+Prototipo:
+```c
+static bool	is_duplicate(t_node *node, int value);
+```
+Complejidad
+O(n)
+
+### stack_from_argv()
+Responsabilidad:
+Construir la pila A a partir de los argumentos.
+Debe:
+convertir cada argumento;
+validar cada número;
+comprobar duplicados;
+Llamar a quien crea el nodo y lo insertar en la pila.
+No imprime errores.
+No llama a exit().
+Prototipo:
+```c
+bool	stack_from_argv(t_stack *stack, int argc, char **argv);
+```
+Complejidad
+O(n)
+
+
+## metadata_index.c
+### find_smallest_unindexed()
+Responsabilidad:
+Encontrar el nodo con el menor value cuyo index todavía sea -1.
+No modifica la pila. No modifica ningún nodo. Solo busca.
+Recibe: t_stack	*stack
+La pila donde buscar.
+Devuelve: t_node	*
+Puntero al nodo encontrado. NULL si todos los nodos ya están indexados.
+```c
+static t_node	*find_smallest_unindexed(t_stack *stack)
+```
+Complejidad: O(n)
+
+### assign_indexes()
+Responsabilidad:
+Asignar un índice consecutivo a todos los nodos de la pila.
+```c
+void	assign_indexes(t_stack *stack)
+```
+Complejidad
+O(n²)
