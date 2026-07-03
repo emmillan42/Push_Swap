@@ -6,7 +6,7 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 10:09:59 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/03 10:25:35 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/03 23:59:44 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,21 @@ int	main(void)
 	update_metadata(a, b);
 
 	print_title("AFTER rrb(b)");
+	print_stack(a);
+	print_stack(b);
+
+	/* Aditional Review */
+	pa(a, b);
+	update_metadata(a, b);
+
+	print_title("AFTER pa()");
+	print_stack(a);
+	print_stack(b);
+
+	sa(a);
+	update_metadata(a, b);
+
+	print_title("AFTER sa()");
 	print_stack(a);
 	print_stack(b);
 

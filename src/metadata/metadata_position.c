@@ -6,7 +6,7 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 18:14:30 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/02 19:07:12 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/03 23:59:04 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	update_positions(t_stack *stack)
 	while (node)
 	{
 		node->position = position;
-		node->above_median = (position < stack->size / 2);
+		node->above_median = (position <= (stack->size - 1) / 2);
 		position++;
 		node = node->next;
 	}

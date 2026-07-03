@@ -369,6 +369,14 @@ typedef struct s_node
 
 }	t_node;
 
+Campo		Tipo		¿Cambia?	¿Depende de la fase?
+value		Permanente	❌			❌
+index		Permanente	❌			❌
+position	Dinámico	✅			❌
+target	Dinámico	✅			✅
+cost		Dinámico	✅			✅
+cheapest	Dinámico	✅			✅
+
 update_metadata(stack_a, stack_b);
 update_positions();
 update_targets();

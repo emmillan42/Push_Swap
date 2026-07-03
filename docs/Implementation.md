@@ -792,3 +792,74 @@ void	find_cheapest(t_stack *stack);
 ```
 Complejidad
 O(n)
+
+
+## metadata.c
+### update_metadata()
+Responsabilidad:
+Actualizar todos los metadatos necesarios para que el algoritmo pueda decidir el siguiente movimiento.
+No ejecuta ninguna operación sobre las pilas.
+No mueve nodos.
+No reserva memoria.
+No libera memoria.
+Únicamente coordina el resto del módulo.
+
+Recibe:
+Las pilas A y B.
+Devuelve:
+void
+
+```c
+void	update_metadata(t_stack *a, t_stack *b);
+```
+Complejidad
+O(n)
+
+# Debug Library
+## print_stack.c
+### print_node()
+Responsabilidad:
+Imprimir una única fila correspondiente a un nodo.
+No modifica ningún dato.
+
+Recibe:
+Nodo a imprimir.
+Devuelve:
+void
+
+```c
+static void	print_node(t_node *node);
+```
+Complejidad
+O(1)
+
+### print_header()
+Responsabilidad:
+Imprimir el encabezado de la tabla.
+
+Recibe:
+Pila cuyo encabezado se va a imprimir.
+Devuelve:
+void
+
+```c
+static void	print_header(t_stack *stack);
+```
+Complejidad
+O(1)
+
+### print_stack()
+Responsabilidad:
+Imprimir de forma legible el estado completo de una pila para facilitar la depuración.
+Esta función no forma parte del ejecutable final. Solo será utilizada por los main de pruebas.
+
+Recibe:
+Las pila que se desea imprimir.
+Devuelve:
+void
+
+```c
+void	update_metadata(t_stack *a, t_stack *b);
+```
+Complejidad
+O(n)
