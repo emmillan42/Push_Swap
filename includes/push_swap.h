@@ -6,7 +6,7 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 17:33:22 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/02 00:12:32 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/03 10:24:52 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,37 @@ bool				parse_int(const char *str, int *value);
 
 /* parser.c */
 bool				stack_from_argv(t_stack *stack, int argc, char **argv);
+
+/* ************************************************************************** */
+/* METADATA                                                                   */
+/* ************************************************************************** */
+
+/* metadata_index.c */
+void				assign_indexes(t_stack *stack);
+
+/* metadata_position.c */
+void				update_positions(t_stack *stack);
+
+/* metadata_target_a.c */
+void				update_targets_a(t_stack *a, t_stack *b);
+
+/* metadata_target_b.c */
+void				update_targets_b(t_stack *a, t_stack *b);
+
+/* metadata_cost.c */
+void				update_costs(t_stack *a, t_stack *b);
+
+/* metadata_cheapest.c */
+void				find_cheapest(t_stack *stack);
+
+/* metadata.c */
+void				update_metadata(t_stack *a, t_stack *b);
+
+/* ************************************************************************** */
+/* DEBUG                                                                      */
+/* ************************************************************************** */
+
+/* print_stack.c */
+void				print_stack(t_stack *stack);
 
 #endif

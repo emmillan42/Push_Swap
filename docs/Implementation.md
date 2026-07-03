@@ -598,6 +598,9 @@ Complejidad
 O(n)
 
 
+# Metadata Library
+
+
 ## metadata_index.c
 ### find_smallest_unindexed()
 Responsabilidad:
@@ -608,7 +611,7 @@ La pila donde buscar.
 Devuelve: t_node	*
 Puntero al nodo encontrado. NULL si todos los nodos ya están indexados.
 ```c
-static t_node	*find_smallest_unindexed(t_stack *stack)
+static t_node	*find_smallest_unindexed(t_stack *stack);
 ```
 Complejidad: O(n)
 
@@ -616,7 +619,176 @@ Complejidad: O(n)
 Responsabilidad:
 Asignar un índice consecutivo a todos los nodos de la pila.
 ```c
-void	assign_indexes(t_stack *stack)
+void	assign_indexes(t_stack *stack);
 ```
 Complejidad
 O(n²)
+
+## metadata_position.c
+### update_positions()
+Responsabilidad:
+Actualizar los campos node->position y node->above_median de todos los nodos de una pila.
+No modifica value, index, target, cost, cheapest o la estructura de la lista
+```c
+void	update_positions(t_stack *stack);
+```
+Complejidad
+O(1)
+
+## metadata_target_a.c
+### find_biggest_smaller()
+Responsabilidad:
+Buscar en una pila el nodo con el mayor value que sea menor que un valor dado.
+No modifica la pila. No modifica ningún nodo. Solo busca.
+Recibe:
+La pila donde buscar y el Valor de referencia
+Devuelve:
+El nodo encontrado o NULL si no existe ninguno.
+
+```c
+static t_node	*find_biggest_smaller(t_stack *stack, int value);
+```
+Complejidad
+O(n)
+
+### find_max()
+Responsabilidad:
+Buscar el nodo con el mayor value de una pila.
+No modifica la pila. No modifica ningún nodo.
+Recibe:
+La pila donde buscar.
+Devuelve:
+Nodo con el mayor value. NULL si la pila está vacía.
+
+```c
+static t_node	*find_max(t_stack *stack);
+```
+Complejidad
+O(n)
+
+### update_targets_a()
+Responsabilidad:
+Actualizar el campo target de todos los nodos de la pila A.
+Cada nodo de A conocerá cuál es su nodo destino en B.
+Recibe:
+La pila origen y la pila destino.
+Devuelve:
+void
+
+```c
+void	update_targets_a(t_stack *a, t_stack *b);
+```
+Complejidad
+O(n)
+
+## metadata_target_b.c
+### find_smallest_bigger()
+Responsabilidad:
+Buscar en una pila el nodo con el menor value que sea mayor que un valor dado.
+No modifica la pila. No modifica ningún nodo. Solo busca.
+Recibe:
+La pila donde buscar y el Valor de referencia
+Devuelve:
+El nodo encontrado o NULL si no existe ninguno.
+
+```c
+static t_node	*find_smallest_bigger(t_stack *stack, int value);
+```
+Complejidad
+O(n)
+
+### find_min()
+Responsabilidad:
+Buscar el nodo con el menor value de una pila.
+No modifica la pila. No modifica ningún nodo.
+Recibe:
+La pila donde buscar.
+Devuelve:
+Nodo con el menor value. NULL si la pila está vacía.
+
+```c
+static t_node	*find_min(t_stack *stack);
+```
+Complejidad
+O(n)
+
+### update_targets_b()
+Responsabilidad:
+Actualizar el campo target de todos los nodos de la pila B.
+Cada nodo de B conocerá cuál es su nodo destino en A.
+Recibe:
+La pila origen y la pila destino.
+Devuelve:
+void
+
+```c
+void	update_targets_b(t_stack *a, t_stack *b);
+```
+Complejidad
+O(n)
+
+## metadata_cost.c
+### rotation_cost()
+Responsabilidad:
+Calcular cuántas rotaciones necesita un nodo para llegar al top de su pila.
+No conoce target, cost o cheapest.
+
+Recibe:
+La pila donde está el nodo y el nodo cuyo coste queremos calcular.
+Devuelve:
+Número mínimo de rotaciones necesarias.
+
+```c
+static int	rotation_cost(t_stack *stack, t_node *node);
+```
+Complejidad
+O(1)
+
+### update_costs()
+Responsabilidad:
+Actualizar el campo node->cost de todos los nodos de la pila A.
+
+Recibe:
+Las pilas A y B. Necesita ambas pilas porque un nodo pertenece a A y su target pertenece a B.
+Devuelve:
+void.
+
+```c
+void	update_costs(t_stack *a, t_stack *b);
+```
+Complejidad
+O(n)
+
+## metadata_cheapest.c
+### find_lowest_cost()
+Responsabilidad:
+Encontrar el nodo con menor coste de una pila.
+No modifica la pila.
+No modifica ningún nodo.
+
+Recibe:
+La pila donde buscar.
+Devuelve:
+Nodo con menor cost o NULL si la pila está vacía.
+
+```c
+static t_node	*find_lowest_cost(t_stack *stack);
+```
+Complejidad
+O(n)
+
+### find_cheapest()
+Responsabilidad:
+Actualizar el campo node->cheapest de todos los nodos de la pila.
+Al finalizar un único nodo tendrá cheapest == true. Todos los demás tendrán cheapest == false.
+
+Recibe:
+La pilas con los nodos a actualizar.
+Devuelve:
+void.
+
+```c
+void	find_cheapest(t_stack *stack);
+```
+Complejidad
+O(n)
