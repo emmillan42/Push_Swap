@@ -6,7 +6,7 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 17:33:22 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/03 10:24:52 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/09 22:00:14 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,17 @@ void				find_cheapest(t_stack *stack);
 
 /* metadata.c */
 void				update_metadata(t_stack *a, t_stack *b);
+
+/* ************************************************************************** */
+/* ALGORITHM                                                                  */
+/* ************************************************************************** */
+
+/* algorithm_small.c */
+void				sort_two(t_stack *a);
+void				sort_three(t_stack *a);
+
+/* algorithm_small_utils.c */
+void	sort_four_five(t_stack *a, t_stack *b);
 
 /* ************************************************************************** */
 /* DEBUG                                                                      */
