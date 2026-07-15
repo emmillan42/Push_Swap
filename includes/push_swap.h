@@ -6,7 +6,7 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 17:33:22 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/09 22:00:14 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/15 13:13:32 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,13 +122,16 @@ void				update_targets_a(t_stack *a, t_stack *b);
 void				update_targets_b(t_stack *a, t_stack *b);
 
 /* metadata_cost.c */
-void				update_costs(t_stack *a, t_stack *b);
+void				update_costs_a(t_stack *a, t_stack *b);
+void				update_costs_b(t_stack *a, t_stack *b);
 
 /* metadata_cheapest.c */
 void				find_cheapest(t_stack *stack);
+t_node				*find_lowest_cost(t_stack *stack);
 
 /* metadata.c */
-void				update_metadata(t_stack *a, t_stack *b);
+void				update_metadata_a_to_b(t_stack *a, t_stack *b);
+void				update_metadata_b_to_a(t_stack *a, t_stack *b);
 
 /* ************************************************************************** */
 /* ALGORITHM                                                                  */
@@ -139,7 +142,27 @@ void				sort_two(t_stack *a);
 void				sort_three(t_stack *a);
 
 /* algorithm_small_utils.c */
-void	sort_four_five(t_stack *a, t_stack *b);
+t_node				*find_min(t_stack *stack);
+void				sort_four_five(t_stack *a, t_stack *b);
+// t_node				*find_cheapest_node(t_stack *stack);
+
+/* algorithm_move.c */
+void				bring_to_top(t_stack *stack, t_node *top_node);
+// void				move_cheapest(t_stack *a, t_stack *b, t_node *cheapest);
+void				move_a_to_b(t_stack *a, t_stack *b);
+void				move_b_to_a(t_stack *a, t_stack *b);
+
+/* algorithm_move_utils.c */
+void				rotate_to_top(t_stack *stack, t_node *top_node);
+void				reverse_rotate_to_top(t_stack *stack, t_node *top_node);
+void				rotate_both(t_stack *a, t_stack *b, t_node *top_a,
+						t_node *top_b);
+
+void				reverse_rotate_both(t_stack *a, t_stack *b, t_node *top_a,
+						t_node *top_b);
+
+/* algorithm_turk.c */
+void				sort_turk(t_stack *a, t_stack *b);
 
 /* ************************************************************************** */
 /* DEBUG                                                                      */

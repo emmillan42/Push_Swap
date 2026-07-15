@@ -6,10 +6,11 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 17:02:55 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/09 21:58:38 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/15 13:21:01 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../includes/push_swap.h"
 #include "permutation.h"
 
 static void	init_values(int values[], int size)

@@ -6,7 +6,7 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 19:49:15 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/02 22:36:51 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/15 13:18:46 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static t_node	*find_biggest_smaller(t_stack *stack, int value)
 	return (best);
 }
 
-static t_node	*find_max(t_stack *stack)
+static t_node	*find_max_value(t_stack *stack)
 {
 	t_node	*node;
 	t_node	*max;
@@ -58,7 +58,7 @@ void	update_targets_a(t_stack *a, t_stack *b)
 	{
 		node->target = find_biggest_smaller(b, node->value);
 		if (!node->target)
-			node->target = find_max(b);
+			node->target = find_max_value(b);
 		node = node->next;
 	}
 }

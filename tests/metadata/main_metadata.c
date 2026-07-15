@@ -6,7 +6,7 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 10:09:59 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/03 23:59:44 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/15 13:21:40 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	main(void)
 	/* Primer movimiento */
 	pb(a, b);
 
-	update_metadata(a, b);
+	update_metadata_a_to_b(a, b);
 
 	print_title("AFTER pb()");
 	print_stack(a);
@@ -60,7 +60,7 @@ int	main(void)
 	/* Segundo movimiento */
 	pb(a, b);
 
-	update_metadata(a, b);
+	update_metadata_a_to_b(a, b);
 
 	print_title("AFTER second pb()");
 	print_stack(a);
@@ -70,7 +70,7 @@ int	main(void)
 
 	ra(a);
 
-	update_metadata(a, b);
+	update_metadata_a_to_b(a, b);
 
 	print_title("AFTER ra(a)");
 	print_stack(a);
@@ -80,7 +80,7 @@ int	main(void)
 
 	rrb(b);
 
-	update_metadata(a, b);
+	update_metadata_a_to_b(a, b);
 
 	print_title("AFTER rrb(b)");
 	print_stack(a);
@@ -88,14 +88,14 @@ int	main(void)
 
 	/* Aditional Review */
 	pa(a, b);
-	update_metadata(a, b);
+	update_metadata_a_to_b(a, b);
 
 	print_title("AFTER pa()");
 	print_stack(a);
 	print_stack(b);
 
 	sa(a);
-	update_metadata(a, b);
+	update_metadata_a_to_b(a, b);
 
 	print_title("AFTER sa()");
 	print_stack(a);

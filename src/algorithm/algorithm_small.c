@@ -6,7 +6,7 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 23:05:24 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/09 21:40:55 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/15 13:17:19 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static t_node	*find_max(t_stack *stack)
 	t_node	*node;
 	t_node	*max;
 
+	if (!stack || !stack->top)
+		return (NULL);
 	max = stack->top;
 	node = max->next;
 	while (node)

@@ -1,45 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   metadata_cheapest.c                                :+:      :+:    :+:   */
+/*   algorithm_turk.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/03 09:15:18 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/15 13:17:56 by emmmilla         ###   ########.fr       */
+/*   Created: 2026/07/13 09:37:10 by emmmilla          #+#    #+#             */
+/*   Updated: 2026/07/15 13:17:38 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-t_node	*find_lowest_cost(t_stack *stack)
+static void	final_rotation(t_stack *a)
 {
-	t_node	*node;
-	t_node	*best;
+	t_node	*min;
 
-	if (!stack || !stack->top)
-		return (NULL);
-	best = stack->top;
-	node = best->next;
-	while (node)
-	{
-		if (node->cost < best->cost)
-			best = node;
-		node = node->next;
-	}
-	return (best);
+	min = find_min(a);
+	if (min)
+		bring_to_top(a, min);
 }
 
-void	find_cheapest(t_stack *stack)
+void	sort_turk(t_stack *a, t_stack *b)
 {
-	t_node	*node;
-	t_node	*best;
-
-	best = find_lowest_cost(stack);
-	node = stack->top;
-	while (node)
+	if (a->size > 3)
+		pb(a, b);
+	if (a->size > 3)
+		pb(a, b);
+	while (a->size > 3)
 	{
-		node->cheapest = (node == best);
-		node = node->next;
+		update_metadata_a_to_b(a, b);
+		move_a_to_b(a, b);
 	}
+	sort_three(a);
+	while (b->size)
+	{
+		update_metadata_b_to_a(a, b);
+		move_b_to_a(a, b);
+	}
+	final_rotation(a);
 }
