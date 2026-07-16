@@ -6,7 +6,7 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 20:46:08 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/15 13:16:57 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/15 22:10:43 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,20 +60,3 @@ void	sort_four_five(t_stack *a, t_stack *b)
 	while (b->size > 0)
 		pa(a, b);
 }
-
-/*--------------------------------------------------------------------*/
-// Candidata a borrar
-/* t_node	*find_cheapest_node(t_stack *stack)
-{
-	t_node	*node;
-
-	node = stack->top;
-	while (node)
-	{
-		if (node->cheapest)
-			return (node);
-		node = node->next;
-	}
-	return (NULL);
-} */
-/*--------------------------------------------------------------------*/

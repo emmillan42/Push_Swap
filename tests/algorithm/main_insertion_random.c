@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithm_turk.c                                   :+:      :+:    :+:   */
+/*   main_insertion_random.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/13 09:37:10 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/15 22:10:36 by emmmilla         ###   ########.fr       */
+/*   Created: 2026/07/16 08:52:13 by emmmilla          #+#    #+#             */
+/*   Updated: 2026/07/16 12:01:47 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
+#include <stdlib.h>
+#include <time.h>
 
-void	sort_turk(t_stack *a, t_stack *b)
+#define SIZE 20
+#define TESTS 1000
+
+static void	fill_random(int *array)
 {
-	if (a->size > 3)
-		pb(a, b);
-	if (a->size > 3)
-		pb(a, b);
-	while (a->size > 3)
+	int	i;
+	int	j;
+	int	tmp;
+
+	i = 0;
+	while (i < SIZE)
 	{
-		update_metadata_a_to_b(a, b);
-		move_a_to_b(a, b);
+		array[i] = i + 1;
+		i++;
 	}
-	sort_three(a);
-	while (b->size)
+	i = SIZE - 1;
+	while (i > 0)
 	{
-		update_metadata_b_to_a(a, b);
-		move_b_to_a(a, b);
+		j = rand() % (i + 1);
+		tmp = array[i];
+		array[i] = array[j];
+		array[j] = tmp;
+		i--;
 	}
-	final_rotation(a);
 }
