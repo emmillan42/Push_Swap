@@ -6,7 +6,7 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 17:33:22 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/15 23:39:21 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/17 12:19:32 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,19 @@ typedef struct s_stack
 	char			name;
 }					t_stack;
 
+typedef struct s_chunk
+{
+	int				start;
+	int				end;
+	int				middle;
+}					t_chunk;
+
+/* typedef struct s_chunk_ctx
+{
+	int				chunk_size;
+	int				chunk_count;
+	int				total_size;
+}					t_chunk_ctx; */
 /* ************************************************************************** */
 /* STACK                                                                      */
 /* ************************************************************************** */
@@ -165,6 +178,16 @@ void				sort_turk(t_stack *a, t_stack *b);
 
 /* algorithm_insertion.c */
 void				sort_insertion(t_stack *a, t_stack *b);
+
+/* algorithm_chunk.c */
+void				sort_chunk(t_stack *a, t_stack *b);
+
+/* algorithm_chunk_utils.c */
+bool				node_in_chunk(t_node *node, t_chunk *chunk);
+bool				has_chunk_nodes(t_stack *a, t_chunk *chunk);
+int					get_chunk_count(int size);
+bool				should_rotate_after_push(t_node *node, int middle);
+int					get_chunk_size(int size);
 
 /* ************************************************************************** */
 /* DEBUG                                                                      */
