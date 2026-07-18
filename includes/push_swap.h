@@ -6,7 +6,7 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 17:33:22 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/17 12:19:32 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/18 10:55:42 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,6 +188,10 @@ bool				has_chunk_nodes(t_stack *a, t_chunk *chunk);
 int					get_chunk_count(int size);
 bool				should_rotate_after_push(t_node *node, int middle);
 int					get_chunk_size(int size);
+
+/* algorithm_radix.c */
+int					get_max_bits(t_stack *stack);
+void				sort_radix(t_stack *a, t_stack *b);
 
 /* ************************************************************************** */
 /* DEBUG                                                                      */
