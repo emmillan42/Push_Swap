@@ -6,12 +6,11 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/17 07:35:06 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/17 12:20:05 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/19 19:12:33 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-#include <stdio.h>
 
 static void	process_chunk(t_stack *a, t_stack *b, t_chunk *chunk)
 {

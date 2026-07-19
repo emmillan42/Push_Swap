@@ -6,12 +6,11 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/18 09:46:24 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/18 10:51:51 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/19 19:11:42 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-#include <stdio.h>
 
 int	get_max_bits(t_stack *stack)
 {
@@ -60,19 +59,8 @@ void	sort_radix(t_stack *a, t_stack *b)
 	bit = 0;
 	while (bit < max_bits)
 	{
-		//
-		printf("\n========== PASS %d ==========\n", bit);
-		//
 		process_bit(a, b, bit);
-		//
-		print_stack(a);
-		print_stack(b);
-		//
 		push_back_to_a(a, b);
-		//
-		print_stack(a);
-		print_stack(b);
-		//
 		bit++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 20:46:08 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/15 22:10:43 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/19 11:04:08 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,33 +30,20 @@ t_node	*find_min(t_stack *stack)
 	return (min);
 }
 
-static void	move_min_to_top(t_stack *a)
+t_node	*find_max(t_stack *stack)
 {
-	t_node	*min;
-	int		rotations;
+	t_node	*node;
+	t_node	*max;
 
-	update_positions(a);
-	min = find_min(a);
-	rotations = min->position;
-	if (rotations <= (a->size - 1) / 2)
-		while (rotations--)
-			ra(a);
-	else
+	if (!stack || !stack->top)
+		return (NULL);
+	max = stack->top;
+	node = max->next;
+	while (node)
 	{
-		rotations = a->size - rotations;
-		while (rotations--)
-			rra(a);
+		if (node->index > max->index)
+			max = node;
+		node = node->next;
 	}
-}
-
-void	sort_four_five(t_stack *a, t_stack *b)
-{
-	while (a->size > 3)
-	{
-		move_min_to_top(a);
-		pb(a, b);
-	}
-	sort_three(a);
-	while (b->size > 0)
-		pa(a, b);
+	return (max);
 }

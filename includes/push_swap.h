@@ -6,7 +6,7 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 17:33:22 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/18 10:55:42 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/19 11:06:03 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,18 +151,19 @@ void				update_metadata_b_to_a(t_stack *a, t_stack *b);
 /* ************************************************************************** */
 
 /* algorithm_small.c */
-t_node				*find_max(t_stack *stack);
 void				sort_two(t_stack *a);
 void				sort_three(t_stack *a);
+void				sort_four_five(t_stack *a, t_stack *b);
 
 /* algorithm_small_utils.c */
 t_node				*find_min(t_stack *stack);
-void				sort_four_five(t_stack *a, t_stack *b);
+t_node				*find_max(t_stack *stack);
 
 /* algorithm_move.c */
 void				bring_to_top(t_stack *stack, t_node *top_node);
 void				move_a_to_b(t_stack *a, t_stack *b);
 void				move_b_to_a(t_stack *a, t_stack *b);
+void				final_rotation(t_stack *a);
 
 /* algorithm_move_utils.c */
 void				rotate_to_top(t_stack *stack, t_node *top_node);
@@ -171,7 +172,6 @@ void				rotate_both(t_stack *a, t_stack *b, t_node *top_a,
 						t_node *top_b);
 void				reverse_rotate_both(t_stack *a, t_stack *b, t_node *top_a,
 						t_node *top_b);
-void				final_rotation(t_stack *a);
 
 /* algorithm_turk.c */
 void				sort_turk(t_stack *a, t_stack *b);
