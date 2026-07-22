@@ -6,14 +6,14 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 17:33:22 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/19 11:06:03 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/22 16:36:40 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../../../0/Libft/libft.h"
+# include "libft.h"
 # include <limits.h>
 # include <stdbool.h>
 # include <stdlib.h>

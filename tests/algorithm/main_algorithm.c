@@ -6,13 +6,15 @@
 /*   By: emmmilla <emmmilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 15:48:35 by emmmilla          #+#    #+#             */
-/*   Updated: 2026/07/15 12:58:15 by emmmilla         ###   ########.fr       */
+/*   Updated: 2026/07/19 20:02:39 by emmmilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 #include "../common/permutation.h"
 #include <stdio.h>
+
+#define LOG(...) fprintf(stderr, __VA_ARGS__)
 
 static int	g_total = 0;
 static int	g_failed = 0;
@@ -71,20 +73,20 @@ static void	test_permutation(int *values, int size)
 		int	i;
 
 		g_failed++;
-		printf("\n=========================================\n");
-		printf("FAILED PERMUTATION #%d\n", g_total);
-		printf("Input: ");
+		LOG("\n=========================================\n");
+		LOG("FAILED PERMUTATION #%d\n", g_total);
+		LOG("Input: ");
 		i = 0;
 		while (i < size)
 		{
-			printf("%d ", values[i]);
+			LOG("%d ", values[i]);
 			i++;
 		}
-		printf("\n\nStack A:\n");
+		LOG("\n\nStack A:\n");
 		print_stack(a);
-		printf("\nStack B:\n");
+		LOG("\nStack B:\n");
 		print_stack(b);
-		printf("=========================================\n");
+		LOG("=========================================\n");
 	}
 	stack_clear(a);
 	stack_clear(b);
@@ -92,29 +94,29 @@ static void	test_permutation(int *values, int size)
 
 static void	run_permutation_tests(void)
 {
-	printf("\n");
-	printf("=========================================\n");
-	printf(" Testing all permutations (6! = 720)\n");
-	printf("=========================================\n\n");
+	LOG("\n");
+	LOG("=========================================\n");
+	LOG(" Testing all permutations (6! = 720)\n");
+	LOG("=========================================\n\n");
 
 	g_total = 0;
 	g_failed = 0;
 
 	run_all_permutations(6, test_permutation);
 
-	printf("\n=========================================\n");
-	printf("RESULT\n");
-	printf("-----------------------------------------\n");
-	printf("Passed : %d\n", g_total - g_failed);
-	printf("Failed : %d\n", g_failed);
-	printf("Total  : %d\n", g_total);
+	LOG("\n=========================================\n");
+	LOG("RESULT\n");
+	LOG("-----------------------------------------\n");
+	LOG("Passed : %d\n", g_total - g_failed);
+	LOG("Failed : %d\n", g_failed);
+	LOG("Total  : %d\n", g_total);
 
 	if (g_failed == 0)
-		printf("\n🎉 ALL PERMUTATIONS PASSED!\n");
+		LOG("\n🎉 ALL PERMUTATIONS PASSED!\n");
 	else
-		printf("\n❌ SOME PERMUTATIONS FAILED\n");
+		LOG("\n❌ SOME PERMUTATIONS FAILED\n");
 
-	printf("=========================================\n");
+	LOG("=========================================\n");
 }
 
 static void	run_test(int *values, int size, char *name)
@@ -128,15 +130,15 @@ static void	run_test(int *values, int size, char *name)
 		return ;
 	load_values(a, values, size);
 	assign_indexes(a);
-	printf("\n=============================\n");
-	printf("Test: %s\n", name);
-	printf("=============================\n");
+	LOG("\n=============================\n");
+	LOG("Test: %s\n", name);
+	LOG("=============================\n");
 	sort_turk(a, b);
 	if (test_passed(a, b))
-		printf("[OK]   %s\n", name);
+		LOG("[OK]   %s\n", name);
 	else
 	{
-		printf("[FAIL] %s\n", name);
+		LOG("[FAIL] %s\n", name);
 		print_stack(a);
 		print_stack(b);
 	}
@@ -158,41 +160,31 @@ static void	run_test(int *values, int size, char *name)
 		printf("❌ STACK NOT SORTED\n");
 } */
 
-int	main(void)
+static void	run_single(char *which)
 {
 	int	random1[] = {5, 1, 8, 3, 2, 6, 7, 4};
 	int	reverse8[] = {8, 7, 6, 5, 4, 3, 2, 1};
-	int	sorted8[] = {1, 2, 3, 4, 5, 6, 7, 8};
-	int	random2[] = {4, 7, 2, 8, 1, 6, 3, 5};
-	int	random3[] = {3, 8, 5, 1, 7, 2, 6, 4};
-	int	reverse10[] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-	int random15[] = {
-		12, 3, 15, 1, 9,
-		7, 14, 5, 11, 2,
-		6, 13, 4, 10, 8
-	};
+	int	random15[] = {12, 3, 15, 1, 9, 7, 14, 5, 11, 2, 6, 13, 4, 10, 8};
+	int	random20[] = {12, 3, 20, 1, 18, 7, 14, 5, 11, 2,
+			6, 13, 4, 10, 8, 15, 19, 17, 16, 9};
 
-	int reverse15[] = {
-		15,14,13,12,11,
-		10,9,8,7,6,
-		5,4,3,2,1
-	};
+	if (!ft_strncmp(which, "r8", 3))
+		run_test(random1, 8, "Random 8 #1");
+	else if (!ft_strncmp(which, "rev8", 5))
+		run_test(reverse8, 8, "Reverse 8");
+	else if (!ft_strncmp(which, "r15", 4))
+		run_test(random15, 15, "Random 15");
+	else if (!ft_strncmp(which, "r20", 4))
+		run_test(random20, 20, "Random 20");
+}
 
-	int random20[] = {
-		12, 3, 20, 1, 18,
-		7, 14, 5, 11, 2,
-		6, 13, 4, 10, 8,
-		15, 19, 17, 16, 9
-	};
-
-	run_test(random1, 8, "Random 8 #1");
-	run_test(reverse8, 8, "Reverse 8");
-	run_test(sorted8, 8, "Sorted 8");
-	run_test(random2, 8, "Random 8 #2");
-	run_test(random3, 8, "Random 8 #3");
-	run_test(reverse10, 10, "Reverse 10");
-	run_test(random15, 15, "Random 15");
-	run_test(reverse15, 15, "Reverse 15");
-	run_test(random20, 20, "Random 20");
+int	main(int argc, char **argv)
+{
+	if (argc == 2)
+	{
+		run_single(argv[1]);
+		return (0);
+	}
 	run_permutation_tests();
+	return (0);
 }
